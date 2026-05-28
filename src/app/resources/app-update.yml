@@ -1,0 +1,6 @@
+provider: generic
+url: 'https://github.com/Pomau/ai-assistant-front'
+channel: latest
+updaterCacheDirName: shadowhint-updater
+publisherName: 
+  - ShadowHint

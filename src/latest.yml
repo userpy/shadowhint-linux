@@ -1,0 +1,10 @@
+version: 0.1.127
+files:
+  - url: https://hb.vkcloud-storage.ru/shadowhint/releases/windows/ShadowHint-0.1.127-x64.exe?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=r81V6P2Rx3b83qwo8vCZ3C%2F20260526%2Fru-msk%2Fs3%2Faws4_request&X-Amz-Date=20260526T193410Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=d74ed23ad87303507ac00dd3d3bb575b2a9d18fe577ce72033182cf2c2317a69
+    sha512: RKr5szVHVBtvqqIDQR7xcwPz46lL8bzbNjmnB0E1MYqdSAL9p2qtGjaamlAs8zTwhl6Jftc6lqFd660cbn0DmQ==
+    size: 93681717
+path: https://hb.vkcloud-storage.ru/shadowhint/releases/windows/ShadowHint-0.1.127-x64.exe?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=r81V6P2Rx3b83qwo8vCZ3C%2F20260526%2Fru-msk%2Fs3%2Faws4_request&X-Amz-Date=20260526T193410Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&x-id=GetObject&X-Amz-Signature=d74ed23ad87303507ac00dd3d3bb575b2a9d18fe577ce72033182cf2c2317a69
+sha512: RKr5szVHVBtvqqIDQR7xcwPz46lL8bzbNjmnB0E1MYqdSAL9p2qtGjaamlAs8zTwhl6Jftc6lqFd660cbn0DmQ==
+releaseDate: 2026-04-06T21:52:46Z
+releaseNotes: >
+  ShadowHint-0.1.127-x64.exe

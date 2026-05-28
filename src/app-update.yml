@@ -1,0 +1,3 @@
+provider: generic
+url: https://api.shadowhint.com/api/updates
+channel: latest
