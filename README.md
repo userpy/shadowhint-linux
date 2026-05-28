@@ -28,10 +28,10 @@ npm run dev
 
 ```bash
 # Debian package (x64)
-./build-deb.sh
+./src/build-deb.sh
 
 # Debian package (arm64)
-./build-deb.sh arm64
+./src/build-deb.sh arm64
 ```
 
 Либо запуск из `src/asar`:
@@ -47,9 +47,13 @@ npm run build:deb
 npm run build:deb:arm64
 ```
 
-При сборке через `./build-deb.sh` итоговый `.deb` переносится в `dist` в корне проекта.
+После сборки `.deb`-пакет лежит в папке:
+
+`src/asar/build/`
+
+При сборке через `./src/build-deb.sh` итоговый `.deb` переносится именно туда.
 
 ## Примечания
 
 - Если сборка Linux-пакета падает из-за отсутствия системных инструментов, установите средства пакетирования вашего дистрибутива (например, `dpkg` и `fakeroot`).
-- Если GUI-установщик `.deb` (например, QApt) показывает `Cannot satisfy dependencies`, установите пакет через терминал: `sudo apt install ./dist/shadowhint_0.1.127_amd64.deb`.
+- Если GUI-установщик `.deb` (например, QApt) показывает `Cannot satisfy dependencies`, установите пакет через терминал: `sudo apt install ./src/asar/build/shadowhint_0.1.127_amd64.deb`.

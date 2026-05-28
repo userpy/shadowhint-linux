@@ -1,19 +1,20 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+ROOT_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
 ASAR_DIR="$ROOT_DIR/src/asar"
 ASAR_DIST_DIR="$ASAR_DIR/dist"
-ROOT_DIST_DIR="$ROOT_DIR/dist"
+ASAR_BUILD_DIR="$ASAR_DIR/build"
 
 usage() {
 	cat <<'EOF'
 Usage:
-  ./build-deb.sh [x64|arm64]
+  ./src/build-deb.sh [x64|arm64]
 
 Examples:
-  ./build-deb.sh          # auto-detect arch
-  ./build-deb.sh arm64
+  ./src/build-deb.sh          # auto-detect arch
+  ./src/build-deb.sh arm64
 EOF
 }
 
@@ -145,13 +146,13 @@ echo "Building Debian package for $ARCH..."
 run_npm run "$NPM_SCRIPT"
 
 echo
-echo "Collecting .deb artifacts into $ROOT_DIST_DIR..."
-mkdir -p "$ROOT_DIST_DIR"
+echo "Collecting .deb artifacts into $ASAR_BUILD_DIR..."
+mkdir -p "$ASAR_BUILD_DIR"
 
 if compgen -G "$ASAR_DIST_DIR/*.deb" > /dev/null; then
-	mv -f "$ASAR_DIST_DIR"/*.deb "$ROOT_DIST_DIR"/
+	mv -f "$ASAR_DIST_DIR"/*.deb "$ASAR_BUILD_DIR"/
 	echo "Done. .deb artifacts:"
-	ls -1 "$ROOT_DIST_DIR"/*.deb
+	ls -1 "$ASAR_BUILD_DIR"/*.deb
 else
 	echo "No .deb files found in $ASAR_DIST_DIR" >&2
 	exit 1

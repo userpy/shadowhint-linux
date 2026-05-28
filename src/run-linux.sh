@@ -156,11 +156,25 @@ const localIcon = process.argv[4];
 const marker = process.argv[5];
 const hookMarker = process.argv[6];
 const needle = 'backgroundColor:"#00000000",width:V,height:j';
-const patch = `backgroundColor:"#00000000",icon:"linux"===process.platform?(require("fs").existsSync("${systemIcon}")?"${systemIcon}":(require("fs").existsSync("${localIcon}")?"${localIcon}":void 0)):void 0,width:V,height:j,__shadowhintRuntimeIconHotfix:"${marker}"`;
-const hookPatch = `;(()=>{try{const fs=require("fs"),{app}=require("electron");if("linux"===process.platform&&app&&!global.__shadowhintRuntimeSetIconHook){global.__shadowhintRuntimeSetIconHook=true;const c=["${systemIcon}","${localIcon}"],p=c.find(v=>{try{return fs.existsSync(v)}catch{return false}});p&&app.on("browser-window-created",(_e,w)=>{try{w.setIcon(p)}catch{}})}}catch{}})();/*${hookMarker}*/\n`;
+const patch = `backgroundColor:"#00000000",icon:"linux"===process.platform?(require("fs").existsSync("${localIcon}")?"${localIcon}":(require("fs").existsSync("${systemIcon}")?"${systemIcon}":void 0)):void 0,width:V,height:j,__shadowhintRuntimeIconHotfix:"${marker}"`;
+const hookPatch = `;(()=>{try{const fs=require("fs"),{app}=require("electron");if("linux"===process.platform&&app&&!global.__shadowhintRuntimeSetIconHook){global.__shadowhintRuntimeSetIconHook=true;const c=["${localIcon}","${systemIcon}"],p=c.find(v=>{try{return fs.existsSync(v)}catch{return false}});p&&app.on("browser-window-created",(_e,w)=>{try{w.setIcon(p)}catch{}})}}catch{}})();/*${hookMarker}*/\n`;
+const oldPriorityInline = `icon:"linux"===process.platform?(require("fs").existsSync("${systemIcon}")?"${systemIcon}":(require("fs").existsSync("${localIcon}")?"${localIcon}":void 0)):void 0`;
+const newPriorityInline = `icon:"linux"===process.platform?(require("fs").existsSync("${localIcon}")?"${localIcon}":(require("fs").existsSync("${systemIcon}")?"${systemIcon}":void 0)):void 0`;
+const oldHookOrder = `const c=["${systemIcon}","${localIcon}"]`;
+const newHookOrder = `const c=["${localIcon}","${systemIcon}"]`;
 
 let source = fs.readFileSync(bundlePath, 'utf8');
 let changed = false;
+
+if (source.includes(oldPriorityInline)) {
+	source = source.split(oldPriorityInline).join(newPriorityInline);
+	changed = true;
+}
+
+if (source.includes(oldHookOrder)) {
+	source = source.split(oldHookOrder).join(newHookOrder);
+	changed = true;
+}
 
 if (!source.includes(hookMarker)) {
 	source = hookPatch + source;
