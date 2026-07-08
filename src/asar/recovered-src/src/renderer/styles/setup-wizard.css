@@ -1,0 +1,207 @@
+.setup-wizard {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #121212;
+  overflow: hidden;
+}
+
+.setup-wizard-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 640px;
+  height: 100%;
+  min-height: 540px;
+  background-color: #121212;
+  color: #e0e0e0;
+  padding: 12px 20px 20px;
+  box-sizing: border-box;
+  position: relative;
+  align-items: center;
+  overflow: hidden;
+  margin: 0 auto;
+  gap: 12px;
+}
+
+.setup-titlebar-wrapper {
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto 8px;
+}
+
+.setup-titlebar-wrapper .titlebar {
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  background-color: rgba(32, 32, 32, 0.95);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
+  padding: 0 14px;
+  height: 32px;
+}
+
+.setup-wizard-header {
+  text-align: center;
+  margin-bottom: 20px;
+  width: 100%;
+  max-width: var(--container-width);
+}
+
+.setup-wizard-header h1 {
+  font-size: 28px;
+  margin-bottom: 10px;
+  color: #bb86fc;
+}
+
+.setup-wizard-header p {
+  font-size: 16px;
+  color: #a0a0a0;
+}
+
+.setup-progress {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px;
+  width: 100%;
+  max-width: 760px;
+}
+
+.setup-step {
+  padding: 10px 15px;
+  background-color: #2d2d2d;
+  border-radius: 20px;
+  font-size: 14px;
+  color: #a0a0a0;
+  transition: background-color 0.3s, color 0.3s;
+  text-align: center;
+  flex: 1;
+  white-space: nowrap;
+}
+
+.setup-step.active {
+  background-color: #2e275e;
+  color: #cccccc;
+  font-weight: 500;
+}
+
+.setup-step.current {
+  background-color: #9c64e2;
+  color: #ffffff;
+  font-weight: bold;
+  box-shadow: 0 0 12px rgba(187, 134, 252, 0.7);
+  border: 1px solid #d4afff;
+  transform: scale(1.05);
+  transition: all 0.3s ease;
+}
+
+.setup-step-divider {
+  height: 2px;
+  width: 40px;
+  background-color: #333333;
+  margin: 0 10px;
+  transition: background-color 0.3s ease;
+}
+
+.setup-step-divider.active {
+  background-color: #9c64e2;
+  height: 3px;
+  box-shadow: 0 0 8px rgba(187, 134, 252, 0.5);
+}
+
+.setup-wizard-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding-top: 4px;
+  padding-bottom: 8px;
+  gap: 16px;
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+  overflow-y: auto;
+  max-height: calc(100% - 110px);
+}
+
+.error-message {
+  background-color: rgba(207, 102, 121, 0.2);
+  color: #cf6679;
+  padding: 12px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  border-left: 4px solid #cf6679;
+  width: 100%;
+  max-width: 760px;
+  box-sizing: border-box;
+}
+
+.loading-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+.loading-spinner {
+  border: 4px solid rgba(255, 255, 255, 0.1);
+  border-top: 4px solid #bb86fc;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px;
+}
+
+.loading-text {
+  font-size: 18px;
+  color: #e0e0e0;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Версия в правом нижнем углу */
+.version-info {
+  position: absolute;
+  bottom: 12px;
+  right: 18px;
+  z-index: 10;
+}
+
+.version-text {
+  font-size: 12px;
+  color: #666666;
+  font-weight: 400;
+  background-color: rgba(30, 30, 30, 0.8);
+  padding: 4px 8px;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(4px);
+  user-select: none;
+}
+
+.version-info-clicked .version-text {
+  background-color: rgba(60, 60, 90, 0.9);
+  border-color: rgba(100, 150, 255, 0.3);
+}
+
+.version-info-disabled .version-text {
+  background-color: rgba(90, 60, 30, 0.9);
+  border-color: rgba(255, 150, 100, 0.3);
+  color: #ff9966;
+}

@@ -1,0 +1,236 @@
+/* Стили для текстового поля контекста */
+.context-textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #444;
+  border-radius: 5px;
+  resize: vertical;
+  font-family: inherit;
+  font-size: 14px;
+  background-color: #1E1E1E;
+  color: #E0E0E0;
+  transition: border-color 0.3s;
+  min-height: 180px;
+}
+
+.context-textarea:focus {
+  border-color: #BB86FC;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(187, 134, 252, 0.1);
+}
+
+.context-textarea:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.save-context-button {
+  margin-top: 1rem;
+  width: 100%;
+}
+
+/* Стили для заголовка текущего контекста */
+.current-context-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.context-delete-button {
+  background: none;
+  border: none;
+  color: #CF6679;
+  cursor: pointer;
+  padding: 4px;
+  transition: all 0.3s ease;
+  border-radius: 4px;
+}
+
+.context-delete-button:hover {
+  background-color: rgba(207, 102, 121, 0.1);
+  color: #FF8A99;
+}
+
+.context-delete-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Стили для карточки веб-версии */
+.context-web-card {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.web-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.web-card-header h3 {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #E0E0E0;
+}
+
+.context-web-description {
+  font-size: 0.8rem;
+  line-height: 1.3;
+  color: #A0A0A0;
+  margin-bottom: 0.75rem;
+  max-width: 350px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.button-with-icon {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 10px 20px;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  width: 100%;
+  justify-content: center;
+}
+
+.button-with-icon:hover {
+  transform: translateY(-1px);
+}
+
+.button-with-icon svg {
+  width: 14px;
+  height: 14px;
+  transition: transform 0.3s ease;
+}
+
+.button-with-icon:hover svg {
+  transform: translate(1px, -1px);
+}
+
+/* Улучшенные стили для текущего контекста */
+.current-context-section {
+  margin-bottom: 1.5rem;
+  animation: fadeIn 0.5s ease;
+}
+
+/* Стили для секции текста */
+.context-text-section {
+  background-color: #292929;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 1rem;
+}
+
+.context-text-section label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #E0E0E0;
+  font-size: 14px;
+}
+
+/* Счетчик символов */
+.char-counter {
+  text-align: right;
+  color: #808080;
+  font-size: 12px;
+  margin-top: 8px;
+}
+
+/* Сообщения об ошибках и успехе с иконками */
+.error-message,
+.success-message {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  font-size: 14px;
+  animation: fadeIn 0.3s ease;
+}
+
+.error-message {
+  background-color: rgba(207, 102, 121, 0.15);
+  color: #ff6b6b;
+  border-left: 3px solid #ff6b6b;
+}
+
+.success-message {
+  background-color: rgba(3, 218, 198, 0.15);
+  color: #03dac6;
+  border-left: 3px solid #03dac6;
+}
+
+.error-message svg,
+.success-message svg {
+  flex-shrink: 0;
+}
+
+/* Загрузка */
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(26, 26, 26, 0.9);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.loading-spinner {
+  width: 48px;
+  height: 48px;
+  border: 3px solid rgba(187, 134, 252, 0.3);
+  border-top-color: #bb86fc;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 16px;
+}
+
+/* Анимации */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Адаптация для маленьких экранов */
+@media (max-width: 768px) {
+  .context-textarea {
+    min-height: 120px;
+  }
+  
+  .button-with-icon {
+    font-size: 0.85rem;
+    padding: 8px 16px;
+  }
+  
+  .context-text-section {
+    padding: 12px;
+  }
+}

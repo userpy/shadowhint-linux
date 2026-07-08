@@ -1,0 +1,211 @@
+/* Стили для окна транскрипции */
+.transcription-window {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  background: transparent;
+  color: #e1e1e1;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  padding: 0;
+  margin: 0;
+}
+
+.transcription-container {
+  flex: 1;
+  padding: 8px;
+  overflow: hidden; /* Полностью скрываем переполнение, так как используем JS фильтрацию */
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  /* Ограничиваем высоту для правильной работы ResizeObserver */
+  max-height: 100%;
+
+  /* Выравнивание сообщений по нижней части контейнера */
+  justify-content: flex-end;
+
+  /* Оптимизация производительности */
+  will-change: auto;
+  transform: translateZ(0);
+}
+
+.transcription-container::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+.transcription-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.transcription-container::-webkit-scrollbar-thumb {
+  background: transparent;
+}
+
+.transcription-container::-webkit-scrollbar-thumb:hover {
+  background: transparent;
+}
+
+.transcription-empty {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.6);
+  font-style: italic;
+  font-size: 14px;
+}
+
+.transcription-message {
+  background: rgba(0, 0, 0, 0.9);
+  border-radius: 18px;
+  padding: 8px 12px;
+  max-width: 90%;
+  font-size: 13px;
+  line-height: 1.4;
+  color: #ffffff;
+  word-wrap: break-word;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  align-self: flex-start;
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  transition: all 0.3s ease-in-out;
+
+  /* Анимация появления */
+  animation: transcription-message-appear 0.3s ease-out;
+}
+
+/* Анимация появления новых сообщений */
+@keyframes transcription-message-appear {
+  from {
+    opacity: 0;
+    transform: translateY(10px) translateZ(0);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) translateZ(0);
+  }
+}
+
+/* Скрытые сообщения (обрезанные) */
+.transcription-message-hidden {
+  opacity: 0 !important;
+  pointer-events: none !important;
+  position: absolute !important;
+  visibility: hidden !important;
+}
+
+.transcription-message:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Разные стили для разных говорящих */
+.transcription-message[data-speaker="user"] {
+  background: rgba(33, 150, 243, 0.95);
+  border-color: rgba(33, 150, 243, 0.6);
+  align-self: flex-end;
+  transform: translateZ(0);
+}
+
+.transcription-message[data-speaker="system"],
+.transcription-message[data-speaker="assistant"] {
+  background: rgba(80, 80, 80, 0.95);
+  border-color: rgba(156, 156, 156, 0.6);
+  align-self: flex-start;
+  transform: translateZ(0);
+}
+
+.transcription-message[data-speaker="unknown"] {
+  background: rgba(255, 152, 0, 0.95);
+  border-color: rgba(255, 193, 7, 0.6);
+  align-self: flex-start;
+  transform: translateZ(0);
+}
+
+/* Страница транскрипции */
+.transcription-page {
+  height: 100vh;
+  overflow: hidden;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+}
+
+/* Применяем прозрачность только к окну транскрипции */
+.transcription-page {
+  background: transparent !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+}
+
+/* Глобальные стили для окна транскрипции - применяются когда в URL есть transcription */
+body:has(.transcription-page),
+html:has(.transcription-page),
+#root:has(.transcription-page) {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+/* Альтернативный способ - через атрибут данных */
+body[data-transcription-window="true"],
+html[data-transcription-window="true"],
+#root[data-transcription-window="true"] {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+/* Делаем прозрачными только основные контейнеры */
+.transcription-container {
+  background: transparent !important;
+  box-sizing: border-box;
+}
+
+/* Базовый фон для сообщений */
+.transcription-message {
+  background: rgba(0, 0, 0, 0.9) !important;
+}
+
+/* Переопределяем фон для разных типов сообщений в окне транскрипции */
+.transcription-page .transcription-message[data-speaker="user"] {
+  background: rgba(33, 150, 243, 0.95) !important;
+}
+
+.transcription-page .transcription-message[data-speaker="system"],
+.transcription-page .transcription-message[data-speaker="assistant"] {
+  background: rgba(80, 80, 80, 0.95) !important;
+}
+
+.transcription-page .transcription-message[data-speaker="unknown"] {
+  background: rgba(255, 152, 0, 0.95) !important;
+}
+
+/* Анимация появления новых элементов */
+@keyframes transcription-fade-in {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Анимация для сообщений пользователя (справа) */
+@keyframes transcription-fade-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

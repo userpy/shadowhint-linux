@@ -1,0 +1,164 @@
+/* Стили для подсветки синтаксиса кода */
+
+/* Базовые цвета для разных элементов кода */
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #8292a2;
+}
+
+.token.punctuation {
+  color: #f8f8f2;
+}
+
+.token.namespace {
+  opacity: 0.7;
+}
+
+.token.property,
+.token.tag,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: #f92672;
+}
+
+.token.boolean,
+.token.number {
+  color: #ae81ff;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: #a6e22e;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string,
+.token.variable {
+  color: #f8f8f2;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.function,
+.token.class-name {
+  color: #e6db74;
+}
+
+.token.keyword {
+  color: #66d9ef;
+}
+
+.token.regex,
+.token.important {
+  color: #fd971f;
+}
+
+.token.important,
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+.token.entity {
+}
+
+/* Специальные стили для разных языков программирования */
+
+/* JavaScript */
+.language-javascript .token.function,
+.language-typescript .token.function {
+  color: #66d9ef;
+}
+
+.language-javascript .token.keyword,
+.language-typescript .token.keyword {
+  color: #f92672;
+}
+
+/* HTML */
+.language-html .token.tag {
+  color: #f92672;
+}
+
+.language-html .token.attr-name {
+  color: #a6e22e;
+}
+
+.language-html .token.attr-value {
+  color: #e6db74;
+}
+
+/* CSS */
+.language-css .token.property {
+  color: #66d9ef;
+}
+
+.language-css .token.value {
+  color: #fd971f;
+}
+
+/* Номера строк */
+.line-numbers .line-numbers-rows {
+  border-right: 1px solid #404040;
+  padding-right: 10px;
+}
+
+.line-numbers-rows > span:before {
+  color: #707070;
+}
+
+/* Подсвечивание текущей строки */
+.code-highlight-line {
+  background-color: rgba(255, 255, 255, 0.07);
+  display: block;
+  margin: 0 -1em;
+  padding: 0 1em;
+}
+
+/* Стили для inline кода */
+:not(pre) > code {
+  color: #e6db74;
+  background-color: rgba(20, 20, 20, 0.4);
+  padding: 0.1em 0.3em;
+  border-radius: 0.3em;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+/* Стили для кнопки копирования кода */
+.copy-code-button {
+  background: rgba(187, 134, 252, 0.15);
+  border: 1px solid rgba(187, 134, 252, 0.3);
+  border-radius: 4px;
+  color: #BB86FC;
+  cursor: pointer;
+  font-size: 12px;
+  padding: 2px 6px;
+  margin-left: 8px;
+  transition: all 0.2s ease;
+  pointer-events: auto;
+  user-select: none;
+}
+
+.copy-code-button:hover {
+  background: rgba(187, 134, 252, 0.25);
+  border-color: rgba(187, 134, 252, 0.5);
+  color: #CDA1FF;
+  transform: scale(1.05);
+}
+
+.copy-code-button:active {
+  transform: scale(0.95);
+}

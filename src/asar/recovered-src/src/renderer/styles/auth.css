@@ -1,0 +1,216 @@
+/* Стили для страницы авторизации */
+.auth-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	background-color: var(--background-color);
+	padding: 1rem;
+}
+
+.auth-form-container {
+	width: 100%;
+	max-width: 420px;
+	background-color: white;
+	border-radius: var(--border-radius);
+	box-shadow: var(--box-shadow);
+	padding: 2rem;
+	text-align: center;
+}
+
+.auth-title {
+	color: var(--primary-color);
+	margin-bottom: 0.5rem;
+	font-size: 1.8rem;
+}
+
+.auth-subtitle {
+	color: var(--secondary-color);
+	margin-bottom: 1.5rem;
+	font-size: 1.2rem;
+	font-weight: 500;
+}
+
+.auth-error {
+	background-color: rgba(220, 53, 69, 0.1);
+	color: var(--error-color);
+	padding: 0.75rem;
+	border-radius: var(--border-radius);
+	margin-bottom: 1rem;
+	font-size: 0.9rem;
+	text-align: left;
+}
+
+.auth-form {
+	margin-bottom: 1.5rem;
+}
+
+.form-group {
+	margin-bottom: 1rem;
+	text-align: left;
+}
+
+.auth-button {
+	width: 100%;
+	padding: 0.75rem;
+	margin-top: 1rem;
+	font-weight: 500;
+}
+
+.auth-hint {
+	margin-top: 1rem;
+	font-size: 0.9rem;
+	color: var(--secondary-color);
+	line-height: 1.5;
+}
+
+.auth-hint strong {
+	color: var(--primary-color);
+}
+
+/* Стили для страницы авторизации в темной теме */
+/* (Используем общие стили из index.css) */
+
+.card {
+	background-color: #292929;
+	border-radius: 8px;
+	padding: 24px;
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.mt-lg {
+	margin-top: 40px;
+}
+
+.mb-md {
+	margin-bottom: 16px;
+}
+
+.form-group {
+	margin-bottom: 16px;
+}
+
+.form-label {
+	display: block;
+	margin-bottom: 8px;
+	color: #e0e0e0;
+	font-weight: 500;
+}
+
+.form-input {
+	width: 100%;
+	padding: 10px 12px;
+	border-radius: 4px;
+	border: 1px solid #2e2e2e;
+	background-color: #1e1e1e;
+	color: #e0e0e0;
+	font-size: 14px;
+	transition: border-color 0.2s;
+}
+
+.form-input:focus {
+	border-color: #bb86fc;
+	outline: none;
+}
+
+.button {
+	padding: 10px 16px;
+	border-radius: 4px;
+	font-size: 14px;
+	font-weight: 500;
+	transition: background-color 0.2s;
+	border: none;
+}
+
+.button-primary {
+	background-color: #bb86fc;
+	color: #121212;
+}
+
+.button-primary:hover {
+	background-color: #cda1ff;
+}
+
+.button-primary:active {
+	background-color: #a475e0;
+}
+
+.button-text {
+	background-color: transparent;
+	color: #a0a0a0;
+	padding: 6px 12px;
+}
+
+.button-text:hover {
+	color: #e0e0e0;
+	background-color: rgba(255, 255, 255, 0.05);
+}
+
+.text-error {
+	color: #cf6679;
+}
+
+.text-secondary {
+	color: #a0a0a0;
+	font-size: 12px;
+}
+
+.panel {
+	background-color: #1e1e1e;
+	border-radius: 4px;
+	padding: 16px;
+}
+
+.flex-column {
+	display: flex;
+	flex-direction: column;
+}
+
+.align-center {
+	align-items: center;
+}
+
+.justify-between {
+	justify-content: space-between;
+}
+
+.loading-spinner {
+	width: 40px;
+	height: 40px;
+	border: 4px solid #2e2e2e;
+	border-top: 4px solid #bb86fc;
+	border-radius: 50%;
+	animation: spin 1s linear infinite;
+	margin: 0 auto;
+}
+
+@keyframes spin {
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
+}
+
+.mt-sm {
+	margin-top: 8px;
+}
+
+.mt-md {
+	margin-top: 16px;
+}
+
+.button-secondary {
+	background-color: #2e2e2e;
+	color: #e0e0e0;
+}
+
+.button-secondary:hover {
+	background-color: #3e3e3e;
+}
+
+.button-danger {
+	background-color: #cf6679;
+	color: #121212;
+}
+
+.button-danger:hover {
+	background-color: #e07a8a;
+}

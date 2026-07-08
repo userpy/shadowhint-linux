@@ -1,0 +1,200 @@
+.language-selector {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 14px;
+  width: 100%;
+}
+
+.language-label {
+  color: #333;
+  font-weight: 500;
+  white-space: nowrap;
+  flex-shrink: 0;
+  min-width: 0;
+}
+
+.language-select {
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: white;
+  font-size: 14px;
+  cursor: pointer;
+  min-width: 140px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  flex: 1 1 auto;
+  width: 100%;
+}
+
+.language-select:hover {
+  border-color: #007acc;
+}
+
+.language-select:focus {
+  outline: none;
+  border-color: #007acc;
+  box-shadow: 0 0 0 2px rgba(0, 122, 204, 0.2);
+}
+
+.language-select option {
+  padding: 8px;
+  font-size: 14px;
+}
+
+/* Темная тема */
+@media (prefers-color-scheme: dark) {
+  .language-label {
+    color: #e0e0e0;
+  }
+  
+  .language-select {
+    background-color: #2d2d2d;
+    border-color: #555;
+    color: #e0e0e0;
+  }
+  
+  .language-select:hover {
+    border-color: #4a9eff;
+  }
+  
+  .language-select:focus {
+    border-color: #4a9eff;
+    box-shadow: 0 0 0 2px rgba(74, 158, 255, 0.2);
+  }
+  
+  .language-select option {
+    background-color: #2d2d2d;
+    color: #e0e0e0;
+  }
+}
+
+/* Компактный размер для небольших интерфейсов */
+.language-selector.compact {
+  font-size: 12px;
+}
+
+.language-selector.compact .language-select {
+  padding: 4px 8px;
+  font-size: 12px;
+  min-width: 120px;
+}
+
+/* Встроенный вариант для заголовка */
+.language-selector.inline {
+  margin-left: auto;
+  margin-right: 12px;
+}
+
+/* Стили для страницы авторизации */
+.language-selector.auth-style {
+  display: flex;
+  font-size: 12px;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: nowrap;
+}
+
+.language-selector.auth-style .language-label {
+  color: #a0a0a0;
+  font-size: 12px;
+  font-weight: 400;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.language-selector.auth-style .language-select {
+  padding: 4px 8px !important;
+  font-size: 12px !important;
+  min-width: 100px;
+  background-color: #1e1e1e !important;
+  border: 1px solid #2e2e2e !important;
+  color: #e0e0e0 !important;
+  border-radius: 4px !important;
+  width: auto !important;
+  margin: 0 !important;
+}
+
+.language-selector.auth-style .language-select:hover {
+  border-color: #bb86fc !important;
+}
+
+.language-selector.auth-style .language-select:focus {
+  outline: none !important;
+  border-color: #bb86fc !important;
+  box-shadow: 0 0 0 2px rgba(187, 134, 252, 0.2) !important;
+}
+
+.language-selector.auth-style .language-select option {
+  background-color: #1e1e1e !important;
+  color: #e0e0e0 !important;
+  padding: 6px;
+}
+
+/* Медиа-запрос для очень маленьких экранов */
+@media (max-width: 320px) {
+  .language-selector.auth-style {
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+  }
+  
+  .language-selector.auth-style .language-label {
+    font-size: 10px;
+  }
+  
+  .language-selector.auth-style .language-select {
+    font-size: 10px;
+    min-width: 80px;
+  }
+}
+
+/* Специальный класс для полного контроля над темным select */
+.dark-select {
+  /* Сброс всех браузерных стилей */
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  
+  /* Основные стили */
+  background: #1e1e1e !important;
+  color: #e0e0e0 !important;
+  border: 1px solid #2e2e2e !important;
+  border-radius: 4px !important;
+  
+  /* Размеры и отступы */
+  padding: 4px 24px 4px 8px !important;
+  font-size: 12px !important;
+  font-family: inherit;
+  line-height: 1.4;
+  min-width: 100px;
+  width: auto !important;
+  margin: 0 !important;
+  
+  /* Курсор и переходы */
+  cursor: pointer;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  
+  /* Кастомная стрелка dropdown */
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23a0a0a0' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e") !important;
+  background-repeat: no-repeat !important;
+  background-position: right 6px center !important;
+  background-size: 12px !important;
+}
+
+.dark-select:hover {
+  border-color: #bb86fc !important;
+}
+
+.dark-select:focus {
+  outline: none !important;
+  border-color: #bb86fc !important;
+  box-shadow: 0 0 0 2px rgba(187, 134, 252, 0.2) !important;
+}
+
+.dark-select option {
+  background: #1e1e1e !important;
+  color: #e0e0e0 !important;
+  padding: 6px !important;
+}

@@ -1,0 +1,152 @@
+/* Ручка изменения размера окна */
+.resize-handle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 8px;
+  cursor: col-resize;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease;
+  user-select: none;
+}
+
+.resize-handle-left {
+  left: 0;
+}
+
+.resize-handle-right {
+  right: 0;
+  display: none; /* скрываем правую ручку в окне подсказки */
+}
+
+/* Вертикальные ручки (top/bottom) */
+.resize-handle-top,
+.resize-handle-bottom {
+  top: auto;
+  bottom: auto;
+  left: 0;
+  right: 0;
+  width: auto;
+  height: 8px;
+  cursor: ns-resize;
+  flex-direction: row;
+}
+
+.resize-handle-top {
+  top: 0;
+}
+
+.resize-handle-bottom {
+  bottom: 0;
+}
+
+.resize-handle-top .resize-handle-indicator,
+.resize-handle-bottom .resize-handle-indicator {
+  width: 40px;
+  height: 2px;
+}
+
+.resize-handle-top:hover .resize-handle-indicator,
+.resize-handle-bottom:hover .resize-handle-indicator {
+  width: 60px;
+  height: 2px;
+}
+
+.resize-handle-top.dragging .resize-handle-indicator,
+.resize-handle-bottom.dragging .resize-handle-indicator {
+  width: 80px;
+  height: 2px;
+}
+
+.resize-handle:hover {
+  background-color: rgba(187, 134, 252, 0.1);
+}
+
+.resize-handle.dragging {
+  background-color: rgba(187, 134, 252, 0.2);
+}
+
+.resize-handle-indicator {
+  width: 2px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 1px;
+  transition: all 0.2s ease;
+  pointer-events: none;
+}
+
+.resize-handle:hover .resize-handle-indicator {
+  background-color: rgba(187, 134, 252, 0.6);
+  height: 60px;
+}
+
+.resize-handle.dragging .resize-handle-indicator {
+  background-color: rgba(187, 134, 252, 0.9);
+  height: 80px;
+  box-shadow: 0 0 8px rgba(187, 134, 252, 0.5);
+}
+
+/* Индикатор текущего размера при изменении */
+.resize-size-indicator,
+.resize-width-indicator {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+  color: #BB86FC;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: 600;
+  z-index: 1000;
+  pointer-events: none;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(187, 134, 252, 0.3);
+  animation: fadeInScale 0.15s ease-out;
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+/* Курсор для изменения размера на всем документе при перетаскивании */
+body.resizing-window {
+  user-select: none !important;
+}
+
+body.resizing-window * {
+  user-select: none !important;
+}
+
+body.resizing-window.resizing-horizontal,
+body.resizing-window.resizing-horizontal * {
+  cursor: col-resize !important;
+}
+
+body.resizing-window.resizing-vertical,
+body.resizing-window.resizing-vertical * {
+  cursor: ns-resize !important;
+}
+
+/* Адаптация для suggestion-window-shell */
+.suggestion-window-shell {
+  position: relative;
+  transition: width 0.1s ease-out;
+}
+
+/* Убираем transition при активном перетаскивании для плавности */
+.suggestion-window-shell.resizing {
+  transition: none;
+}

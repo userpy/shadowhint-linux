@@ -1,0 +1,60 @@
+{
+  "name": "shadowhint",
+  "desktopName": "shadowhint-runtime.desktop",
+  "productName": "ShadowHint",
+  "version": "0.1.127",
+  "description": "ShadowHint - Intelligent AI assistant for job interview preparation and career development",
+  "main": ".webpack/main",
+  "homepage": "https://github.com/Pomau/ai-assistant-front",
+  "author": {
+    "name": "ShadowHint",
+    "email": "help@shadowhint.com",
+    "url": "https://shadowhint.com"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Pomau/ai-assistant-front.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Pomau/ai-assistant-front/issues"
+  },
+  "dependencies": {
+    "@grpc/grpc-js": "^1.13.3",
+    "@sentry/electron": "^6.8.0",
+    "@sentry/profiling-node": "^9.47.1",
+    "@statsig/js-client": "^3.31.0",
+    "@statsig/session-replay": "^3.31.0",
+    "@statsig/web-analytics": "^3.31.0",
+    "cors": "^2.8.5",
+    "electron-audio-loopback": "^1.0.3",
+    "electron-squirrel-startup": "^1.0.0",
+    "electron-store": "^8.2.0",
+    "electron-updater": "^6.6.2",
+    "express": "^5.1.0",
+    "ffmpeg-static": "^5.3.0",
+    "google-protobuf": "^3.21.4",
+    "http-proxy-middleware": "^3.0.5",
+    "i18next": "^25.3.6",
+    "jsonwebtoken": "^9.0.2",
+    "katex": "^0.16.27",
+    "koffi": "^2.15.1",
+    "naudiodon": "^2.3.6",
+    "node-machine-id": "^1.1.12",
+    "opusscript": "^0.1.1",
+    "rcedit": "^4.0.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-i18next": "^15.6.1",
+    "react-katex": "^3.1.0",
+    "react-markdown": "^10.1.0",
+    "react-router-dom": "^6.21.0",
+    "react-virtuoso": "^4.13.0",
+    "remark-gfm": "^4.0.1",
+    "systeminformation": "^5.27.10",
+    "use-resize-observer": "^9.1.0",
+    "win-audio-capture": "^1.0.1",
+    "winston": "^3.17.0",
+    "winston-loki": "^6.1.3"
+  }
+}

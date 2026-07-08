@@ -1,0 +1,246 @@
+/* Стили для панели выполнения кода */
+
+.code-execution-panel {
+  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Убираем старые стили header - больше не используется */
+
+/* Stdin toggle теперь использует общий стиль button-secondary */
+
+/* Новый footer с кнопками */
+.code-execution-footer {
+  padding: 12px 16px;
+  border-top: 1px solid #333;
+  border-radius: 0 0 8px 8px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* Используем общие стили приложения для кнопок */
+.code-execution-footer .button-primary,
+.code-execution-footer .button-secondary {
+  font-size: 13px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.code-execution-footer .execute-button {
+  width: 140px;
+  flex: none;
+  color: white !important;
+}
+
+.code-execution-footer .generate-response-button {
+  width: 200px;
+  flex: none;
+}
+
+.stdin-input-section {
+  padding: 12px 16px;
+  background: #252525;
+  border-bottom: 1px solid #333;
+}
+
+.stdin-input-section label {
+  display: block;
+  color: #ccc;
+  font-size: 12px;
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+.stdin-input-section textarea {
+  width: 100%;
+  background: #1e1e1e;
+  border: 1px solid #444;
+  color: #ccc;
+  padding: 8px;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 13px;
+  resize: vertical;
+  min-height: 60px;
+}
+
+.stdin-input-section textarea:focus {
+  outline: none;
+  border-color: #007acc;
+  box-shadow: 0 0 0 2px rgba(0, 122, 204, 0.2);
+}
+
+.execution-result {
+  padding: 16px;
+  background: #1e1e1e;
+  border-radius: 0 0 8px 8px;
+}
+
+.result-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.status-badge {
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.status-badge.success {
+  background: #28a745;
+  color: white;
+}
+
+.status-badge.failed {
+  background: #dc3545;
+  color: white;
+}
+
+.execution-time {
+  background: #28a745;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.api-limit {
+  background: #fd7e14;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.output-section {
+  margin-bottom: 16px;
+}
+
+.output-section:last-child {
+  margin-bottom: 0;
+}
+
+.output-section h4 {
+  color: #ccc;
+  font-size: 13px;
+  margin: 0 0 8px 0;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.output {
+  background: #0d1117;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  padding: 12px;
+  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+  font-size: 13px;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  max-height: 200px;
+  overflow-y: auto;
+  margin: 0;
+}
+
+.output.stdout {
+  color: #c9d1d9;
+  border-left: 3px solid #28a745;
+}
+
+.output.stderr {
+  color: #f85149;
+  border-left: 3px solid #f85149;
+}
+
+.output.exception {
+  color: #ff7b72;
+  border-left: 3px solid #ff7b72;
+}
+
+.output.error {
+  color: #ffa657;
+  border-left: 3px solid #ffa657;
+}
+
+/* Скроллбар для вывода */
+.output::-webkit-scrollbar {
+  width: 8px;
+}
+
+.output::-webkit-scrollbar-track {
+  background: #161b22;
+  border-radius: 4px;
+}
+
+.output::-webkit-scrollbar-thumb {
+  background: #30363d;
+  border-radius: 4px;
+}
+
+.output::-webkit-scrollbar-thumb:hover {
+  background: #484f58;
+}
+
+/* Улучшенная адаптивность для десктопа */
+@media (max-width: 800px) {
+  .code-execution-header {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  
+  .execute-button-main {
+    min-width: 160px;
+    font-size: 13px;
+  }
+  
+  .button-shortcut {
+    display: none;
+  }
+}
+
+/* Анимации */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.execution-result {
+  animation: fadeIn 0.3s ease-out;
+}
+
+
+/* Высокий контраст для доступности */
+@media (prefers-contrast: high) {
+  .code-execution-panel {
+    border-color: #fff;
+  }
+  
+  .language-badge {
+    border: 1px solid #fff;
+  }
+}

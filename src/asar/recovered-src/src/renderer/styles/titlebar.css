@@ -1,0 +1,322 @@
+.titlebar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 28px;
+	background-color: #1e1e1e;
+	color: #e0e0e0;
+	-webkit-app-region: drag;
+	user-select: none;
+	border-bottom: 1px solid #2e2e2e;
+	padding: 0 8px;
+	overflow: visible;
+}
+
+.titlebar-drag-region {
+	display: flex;
+	align-items: center;
+	flex-grow: 1;
+	padding-left: 8px;
+}
+
+.titlebar-title {
+	font-size: 13px;
+	font-weight: 500;
+	opacity: 0.9;
+	margin-right: 15px;
+}
+
+.titlebar-status-container {
+	display: flex;
+	align-items: center;
+	font-size: 12px;
+	margin-left: 15px;
+}
+
+.titlebar-status-indicator {
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	margin-right: 6px;
+	background-color: #555;
+}
+
+.titlebar-status-indicator.status-idle {
+	background-color: #7f7f7f;
+}
+
+.titlebar-status-indicator.status-active {
+	background-color: #5cb85c;
+}
+
+.titlebar-status-indicator.status-warning {
+	background-color: #f0ad4e;
+}
+
+.titlebar-status-indicator.status-error {
+	background-color: #d9534f;
+}
+
+.titlebar-status-message {
+	opacity: 0.8;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	max-width: 400px;
+}
+
+.titlebar-controls {
+	display: flex;
+	-webkit-app-region: no-drag;
+	overflow: visible;
+}
+
+.titlebar-button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 28px;
+	height: 28px;
+	background-color: transparent;
+	border: none;
+	outline: none;
+	padding: 0;
+	position: relative;
+}
+
+.titlebar-button:hover {
+	background-color: rgba(255, 255, 255, 0.1);
+}
+
+.titlebar-button.close-button:hover {
+	background-color: #e81123;
+}
+
+.titlebar-button > svg {
+	display: block;
+}
+
+/* Стили для кнопки тестирования аудио */
+.test-button {
+	margin-right: 4px;
+}
+
+.test-button:hover {
+	background-color: rgba(3, 218, 198, 0.2);
+}
+
+/* Стили для кнопки помощи */
+.help-button {
+	margin-right: 4px;
+}
+
+.help-button:hover {
+	background-color: rgba(187, 134, 252, 0.2);
+}
+
+/* Стили для кнопки Telegram */
+.telegram-button {
+	margin-right: 4px;
+}
+
+.telegram-button:hover {
+	background-color: rgba(41, 171, 226, 0.2);
+}
+
+.telegram-button svg {
+	color: #E0E0E0;
+}
+
+/* Стили для портального tooltip */
+.help-tooltip-portal {
+	position: fixed;
+	background-color: #2e2e2e;
+	border: 1px solid #444;
+	border-radius: 6px;
+	padding: 8px;
+	min-width: 200px;
+	max-width: 250px;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+	z-index: 99999;
+	opacity: 0;
+	visibility: hidden;
+	transform: translateY(5px);
+	transition: all 0.2s ease-in-out;
+	pointer-events: none;
+}
+
+.help-tooltip-portal.visible {
+	opacity: 1;
+	visibility: visible;
+	transform: translateY(0);
+}
+
+/* Обеспечиваем кликабельность tooltip и ссылок */
+.help-tooltip-portal {
+	pointer-events: auto;
+}
+
+.help-tooltip-portal a {
+	pointer-events: auto;
+}
+
+.help-tooltip-portal a:hover {
+	text-decoration: underline;
+}
+
+.help-tooltip-portal .shortcut-item {
+	display: flex;
+	justify-content: flex-start;
+}
+
+/* Специальный класс для телеграм ссылок без flex */
+.help-tooltip-portal .telegram-link-item {
+	display: block;
+	margin-bottom: 2px;
+}
+
+/* Обычный курсор для Telegram ссылок */
+.help-tooltip-portal .telegram-link-item a {
+	cursor: default;
+}
+
+.help-tooltip-portal .shortcut-desc {
+	text-align: left;
+}
+
+/* Выравнивание для телеграм ссылок */
+.help-tooltip-portal .telegram-link-item .shortcut-desc:first-child {
+	display: inline-block;
+}
+
+/* Ссылки занимают оставшуюся ширину на той же строке */
+.help-tooltip-portal .telegram-link-item .shortcut-desc:last-child {
+	display: inline-block;
+}
+
+
+/* Старые стили tooltip для совместимости - можно удалить */
+.help-tooltip {
+	position: absolute;
+	top: calc(100% + 5px);
+	right: 0;
+	background-color: #2e2e2e;
+	border: 1px solid #444;
+	border-radius: 8px;
+	padding: 12px;
+	min-width: 280px;
+	max-width: 350px;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+	z-index: 99999;
+	opacity: 0;
+	visibility: hidden;
+	transform: translateY(-5px);
+	transition: all 0.2s ease-in-out;
+	pointer-events: none;
+}
+
+.help-button:hover .help-tooltip {
+	opacity: 1;
+	visibility: visible;
+	transform: translateY(0);
+}
+
+.help-tooltip-content {
+	color: #e0e0e0;
+	font-size: 11px;
+	line-height: 1.3;
+}
+
+.help-section {
+	margin-bottom: 0;
+}
+
+.help-section:last-child {
+	margin-bottom: 0;
+}
+
+.help-section h4 {
+	color: #bb86fc;
+	font-size: 11px;
+	font-weight: 600;
+	margin-bottom: 4px;
+	margin-top: 0;
+}
+
+.shortcut-item {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 2px;
+	gap: 8px;
+}
+
+.shortcut-item:last-child {
+	margin-bottom: 0;
+}
+
+.shortcut-key {
+	font-family: 'Courier New', monospace;
+	background-color: #444;
+	color: #fff;
+	padding: 1px 4px;
+	border-radius: 2px;
+	font-size: 9px;
+	white-space: nowrap;
+	min-width: fit-content;
+}
+
+.shortcut-desc {
+	color: #a0a0a0;
+	font-size: 10px;
+	text-align: left;
+	flex: 1;
+}
+
+/* Стили для автоопределения */
+.titlebar-auto-detection {
+	display: flex;
+	align-items: center;
+	margin: 0 8px;
+	-webkit-app-region: no-drag;
+}
+
+.auto-detection-btn {
+	display: flex;
+	align-items: center;
+	gap: 4px;
+	background: rgba(255, 255, 255, 0.1);
+	border: 1px solid rgba(255, 255, 255, 0.2);
+	border-radius: 12px;
+	padding: 2px 6px;
+	color: #E0E0E0;
+	font-size: 11px;
+	transition: all 0.2s;
+	outline: none;
+}
+
+.auto-detection-btn.enabled {
+	background: rgba(123, 104, 238, 0.2);
+	border-color: rgba(123, 104, 238, 0.4);
+	color: #7b68ee;
+}
+
+.auto-detection-btn:hover {
+	background: rgba(255, 255, 255, 0.15);
+}
+
+.auto-detection-btn.enabled:hover {
+	background: rgba(123, 104, 238, 0.3);
+}
+
+.toggle-dot {
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: #666;
+	transition: background 0.2s;
+}
+
+.toggle-dot.on {
+	background: #7b68ee;
+}

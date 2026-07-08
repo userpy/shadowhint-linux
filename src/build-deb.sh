@@ -122,6 +122,26 @@ fs.writeFileSync(bundlePath, source);
 console.log('Applied Linux BrowserWindow icon hotfix.');
 NODE
 	fi
+
+	if [[ -f "$main_bundle" ]] && ! grep -q "shadowhint-linux-auth-start-layout-hotfix-v1" "$main_bundle"; then
+		node - "$main_bundle" <<'NODE'
+const fs = require('fs');
+const bundlePath = process.argv[2];
+const marker = 'shadowhint-linux-auth-start-layout-hotfix-v1';
+const needle = 'const e=null!=q&&""!==q,t=e?B:G;F=e?"widget":"auth",V=t.width,j=t.baseHeight,H=t.minHeight,W=t.maxHeight';
+const patch = `const e=!1,t=G;F="auth",V=t.width,j=t.baseHeight,H=t.minHeight,W=t.maxHeight,global.__shadowhintLinuxAuthStartLayoutHotfix="${marker}"`;
+
+let source = fs.readFileSync(bundlePath, 'utf8');
+if (!source.includes(needle)) {
+	console.error('Main bundle auth start layout patch skipped: marker not found.');
+	process.exit(0);
+}
+
+source = source.replace(needle, patch);
+fs.writeFileSync(bundlePath, source);
+console.log('Applied Linux auth start layout hotfix.');
+NODE
+	fi
 }
 
 cd "$ASAR_DIR"

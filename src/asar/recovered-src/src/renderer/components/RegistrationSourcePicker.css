@@ -1,0 +1,94 @@
+.registration-source-picker {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	max-width: 400px;
+	margin: 0 auto;
+}
+
+.registration-source-picker .card {
+	width: 100%;
+}
+
+.registration-source-title {
+	font-size: 18px;
+	font-weight: 600;
+	color: #e0e0e0;
+	text-align: center;
+	margin-bottom: 4px;
+}
+
+.registration-source-subtitle {
+	font-size: 13px;
+	color: #a0a0a0;
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+.registration-source-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 10px;
+	margin-bottom: 16px;
+}
+
+.registration-source-card {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	padding: 12px 14px;
+	background-color: #1e1e1e;
+	border: 1px solid #2e2e2e;
+	border-radius: 8px;
+	cursor: pointer;
+	transition: all 0.2s ease;
+	user-select: none;
+}
+
+.registration-source-card:hover {
+	border-color: #bb86fc;
+	background-color: #252525;
+}
+
+.registration-source-card:active {
+	transform: scale(0.97);
+}
+
+.registration-source-card.selected {
+	border-color: #bb86fc;
+	background-color: rgba(187, 134, 252, 0.1);
+}
+
+.registration-source-card-emoji {
+	font-size: 20px;
+	line-height: 1;
+	flex-shrink: 0;
+}
+
+.registration-source-card-label {
+	font-size: 13px;
+	color: #e0e0e0;
+	line-height: 1.2;
+}
+
+.registration-source-skip {
+	background: none;
+	border: none;
+	color: #a0a0a0;
+	font-size: 13px;
+	cursor: pointer;
+	padding: 8px 16px;
+	transition: color 0.2s;
+}
+
+.registration-source-skip:hover {
+	color: #e0e0e0;
+}
+
+.registration-source-loading {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 12px;
+}

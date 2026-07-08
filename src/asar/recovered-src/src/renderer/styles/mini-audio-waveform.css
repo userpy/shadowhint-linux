@@ -1,0 +1,302 @@
+/* MiniAudioWaveform Component Styles */
+
+.mini-audio-waveform {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 6px;
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  backdrop-filter: blur(5px);
+  transition: all 0.2s ease;
+  font-size: 10px;
+  min-width: 120px;
+}
+
+.mini-audio-waveform.active {
+  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.mini-audio-waveform.microphone.active {
+  box-shadow: 0 0 8px rgba(0, 255, 65, 0.2);
+}
+
+.mini-audio-waveform.system.active {
+  box-shadow: 0 0 8px rgba(0, 153, 255, 0.2);
+}
+
+.mini-audio-waveform.inactive {
+  opacity: 0.6;
+  border-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Mini Canvas Styling */
+.mini-waveform-canvas {
+  border-radius: 2px;
+  background: rgba(0, 0, 0, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  display: block;
+}
+
+.mini-audio-waveform.active .mini-waveform-canvas {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Volume Information */
+.mini-volume-info {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+  font-size: 9px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.mini-wave-bars {
+  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 0.5px;
+  color: rgba(255, 255, 255, 0.6);
+  min-width: 35px;
+}
+
+.mini-audio-waveform.microphone .mini-wave-bars {
+  color: rgba(0, 255, 65, 0.8);
+}
+
+.mini-audio-waveform.system .mini-wave-bars {
+  color: rgba(0, 153, 255, 0.8);
+}
+
+.mini-volume-level {
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 500;
+  font-size: 9px;
+  min-width: 35px;
+  text-align: right;
+}
+
+.mini-audio-waveform.active .mini-volume-level {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Header Integration Styles */
+.widget-header-audio {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto;
+  margin-right: 8px;
+}
+
+/* TitleBar Integration Styles */
+.titlebar-audio-container {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  -webkit-app-region: no-drag;
+}
+
+.titlebar-audio-container .unified-wave-bars {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.titlebar-audio-container .unified-wave-display {
+  font-size: 0;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  min-width: auto;
+}
+
+.titlebar-audio-container .audio-unified-status {
+  font-size: 9px;
+  padding: 2px 4px;
+  border-radius: 4px;
+  gap: 3px;
+}
+
+.titlebar-audio-container .unified-volume-display {
+  font-size: 8px;
+  min-width: 22px;
+  text-align: right;
+}
+
+.audio-status-compact {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.7);
+  padding: 4px 8px;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 6px;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.recording-status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.recording-status-dot.active {
+  background: #00ff41;
+  animation: recording-pulse 2s infinite;
+  box-shadow: 0 0 6px rgba(0, 255, 65, 0.6);
+}
+
+@keyframes recording-pulse {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.2);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .mini-audio-waveform {
+    min-width: 100px;
+    gap: 3px;
+    padding: 2px 4px;
+  }
+  
+  .mini-volume-info {
+    gap: 2px;
+  }
+  
+  .mini-wave-bars {
+    font-size: 7px;
+    min-width: 30px;
+  }
+  
+  .mini-volume-level {
+    font-size: 8px;
+    min-width: 30px;
+  }
+  
+  .widget-header-audio {
+    gap: 6px;
+  }
+}
+
+@media (max-width: 480px) {
+  .mini-audio-waveform {
+    min-width: 80px;
+    gap: 2px;
+    padding: 1px 3px;
+  }
+  
+  .mini-wave-bars {
+    font-size: 6px;
+    min-width: 25px;
+    letter-spacing: 0.2px;
+  }
+  
+  .mini-volume-level {
+    font-size: 7px;
+    min-width: 25px;
+  }
+  
+  .widget-header-audio {
+    gap: 4px;
+    margin-right: 4px;
+  }
+}
+
+/* Dark theme adjustments */
+@media (prefers-color-scheme: dark) {
+  .mini-audio-waveform {
+    background: rgba(20, 20, 20, 0.8);
+    border-color: rgba(255, 255, 255, 0.15);
+  }
+  
+  .mini-waveform-canvas {
+    background: rgba(10, 10, 10, 0.95);
+  }
+  
+  .audio-status-compact {
+    background: rgba(20, 20, 20, 0.6);
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .mini-audio-waveform {
+    border-width: 2px;
+    border-color: rgba(255, 255, 255, 0.4);
+  }
+  
+  .mini-volume-info,
+  .mini-wave-bars,
+  .mini-volume-level {
+    color: rgba(255, 255, 255, 1);
+  }
+  
+  .audio-status-compact {
+    border-color: rgba(255, 255, 255, 0.4);
+  }
+}
+
+/* Accessibility */
+.mini-audio-waveform:focus-within {
+  outline: 2px solid rgba(0, 153, 255, 0.5);
+  outline-offset: 2px;
+}
+
+/* Combined display for unified status */
+.audio-unified-status {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.audio-unified-status.recording {
+  background: transparent;
+}
+
+.unified-wave-display {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  min-width: auto;
+  font-size: 0;
+}
+
+.unified-volume-display {
+  font-weight: 500;
+  font-size: 9px;
+  color: rgba(255, 255, 255, 0.8);
+  min-width: 0px;
+  text-align: right;
+}
+
+.audio-unified-status.recording .unified-wave-display {
+  color: rgba(138, 43, 226, 0.9); /* Purple for combined signal */
+}
+
+.audio-unified-status.recording .unified-volume-display {
+  color: rgba(255, 255, 255, 0.9);
+}

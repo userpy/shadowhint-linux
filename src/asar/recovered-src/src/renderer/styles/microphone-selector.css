@@ -1,0 +1,319 @@
+/* Microphone Selector Component Styles */
+
+.microphone-selector-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  min-width: 28px;
+  width: auto;
+  height: 28px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  padding: 0 4px;
+  position: relative;
+  color: #E0E0E0;
+  transition: all 0.2s ease;
+  border-radius: 4px;
+  -webkit-app-region: no-drag;
+  font-size: 11px;
+  max-width: 120px;
+}
+
+.microphone-selector-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.microphone-selector-button.open {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #bb86fc;
+}
+
+.microphone-selector-button .dropdown-arrow {
+  transition: transform 0.2s ease;
+}
+
+.microphone-selector-button.open .dropdown-arrow {
+  transform: rotate(180deg);
+}
+
+.microphone-selector-button .microphone-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0;
+  max-width: 80px;
+}
+
+/* Выпадающее меню */
+.microphone-selector-menu {
+  position: fixed;
+  background-color: #2e2e2e;
+  border: 1px solid #444;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  z-index: 999999;
+  min-width: 200px;
+  max-width: 300px;
+  max-height: 250px;
+  overflow: hidden;
+  animation: microphone-menu-appear 0.15s ease-out;
+}
+
+@keyframes microphone-menu-appear {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Заголовок меню */
+.microphone-selector-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  background-color: #3a3a3a;
+  border-bottom: 1px solid #444;
+}
+
+.microphone-selector-title {
+  font-size: 11px;
+  font-weight: 600;
+  color: #bb86fc;
+}
+
+.microphone-selector-header-buttons {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.microphone-selector-refresh {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: #a0a0a0;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.microphone-selector-refresh:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #E0E0E0;
+}
+
+.microphone-selector-refresh:disabled {
+  opacity: 0.5;
+}
+
+.microphone-selector-refresh:disabled:hover {
+  background-color: transparent;
+  color: #a0a0a0;
+}
+
+.microphone-selector-support-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  height: 20px;
+  padding: 0 8px;
+  background-color: rgba(187, 134, 252, 0.2);
+  color: #bb86fc;
+  border: 1px solid #bb86fc;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.microphone-selector-support-button:hover {
+  background-color: rgba(187, 134, 252, 0.3);
+  transform: translateY(-1px);
+}
+
+/* Список устройств */
+.microphone-selector-list {
+  max-height: 200px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #555 #2e2e2e;
+}
+
+.microphone-selector-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.microphone-selector-list::-webkit-scrollbar-track {
+  background: #2e2e2e;
+}
+
+.microphone-selector-list::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 3px;
+}
+
+.microphone-selector-list::-webkit-scrollbar-thumb:hover {
+  background: #666;
+}
+
+/* Элемент списка */
+.microphone-selector-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 8px 12px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: #E0E0E0;
+  font-size: 11px;
+  text-align: left;
+  transition: all 0.2s ease;
+  border-radius: 0;
+}
+
+.microphone-selector-item:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.microphone-selector-item.selected {
+  background-color: rgba(187, 134, 252, 0.2);
+  color: #bb86fc;
+}
+
+.microphone-selector-item.selected:hover {
+  background-color: rgba(187, 134, 252, 0.3);
+}
+
+.microphone-selector-item .microphone-icon {
+  flex-shrink: 0;
+  color: #a0a0a0;
+}
+
+.microphone-selector-item.selected .microphone-icon {
+  color: #bb86fc;
+}
+
+.microphone-selector-item .microphone-label {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0;
+}
+
+.microphone-selector-item .check-icon {
+  flex-shrink: 0;
+  color: #4CAF50;
+}
+
+/* Состояния загрузки и пустого списка */
+.microphone-selector-loading,
+.microphone-selector-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 12px;
+  color: #a0a0a0;
+  font-size: 11px;
+  text-align: center;
+}
+
+.microphone-selector-loading {
+  color: #bb86fc;
+}
+
+/* Анимация для иконки обновления */
+.microphone-selector-refresh:not(:disabled):active svg {
+  animation: microphone-refresh-spin 0.5s ease-out;
+}
+
+@keyframes microphone-refresh-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .microphone-selector-menu {
+    min-width: 180px;
+    max-width: 250px;
+  }
+  
+  .microphone-selector-item {
+    padding: 10px 12px;
+  }
+}
+
+/* Темная тема */
+@media (prefers-color-scheme: dark) {
+  .microphone-selector-menu {
+    background-color: #1a1a1a;
+    border-color: #333;
+  }
+  
+  .microphone-selector-header {
+    background-color: #2a2a2a;
+    border-bottom-color: #333;
+  }
+}
+
+/* Высокая контрастность */
+@media (prefers-contrast: high) {
+  .microphone-selector-menu {
+    border-width: 2px;
+    border-color: rgba(255, 255, 255, 0.4);
+  }
+  
+  .microphone-selector-header {
+    border-bottom-width: 2px;
+  }
+  
+  .microphone-selector-item {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .microphone-selector-item:last-child {
+    border-bottom: none;
+  }
+}
+
+/* Фокус для доступности */
+.microphone-selector-button:focus-visible {
+  outline: 2px solid rgba(187, 134, 252, 0.5);
+  outline-offset: 2px;
+}
+
+.microphone-selector-item:focus-visible {
+  outline: 2px solid rgba(187, 134, 252, 0.5);
+  outline-offset: -2px;
+}
+
+.microphone-selector-refresh:focus-visible {
+  outline: 2px solid rgba(187, 134, 252, 0.5);
+  outline-offset: 2px;
+}
+
+.microphone-selector-support-button:focus-visible {
+  outline: 2px solid rgba(187, 134, 252, 0.5);
+  outline-offset: 2px;
+}
